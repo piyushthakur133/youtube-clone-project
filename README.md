@@ -18,4 +18,4 @@ HTML5
 CSS3 (Flexbox, Grid, Responsive Design)
 
 🚀 Live Preview
-Live Demo Link (http://127.0.0.1:5500/youtube.html)
+Live Demo Link (https://piyushthakur133.github.io/youtube-clone-project/)
