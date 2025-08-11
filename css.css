@@ -1,0 +1,307 @@
+ <style>
+        p {
+            font-family: Roboto, Arial;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        body {
+            margin: 0;
+            padding-top: 70px;   /* space for header */
+            padding-left:95px;  /* space for sidebar */
+            font-family: Roboto, Arial, sans-serif;
+            background-color: rgb(232, 232, 232);
+        }
+
+        .thumbnail { 
+            width: 100%;
+        }
+
+        .search-bar {
+            font-size: 15px;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .video-title {
+            margin-top: 0;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 20px;
+            margin-bottom: 12px;
+        }
+
+        .header {
+            height: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-bottom: 1px solid gray;
+            z-index: 100;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .mid-section {
+            flex: 1;
+            margin-left: 70px;
+            margin-right: 35px;
+            max-width: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .right-section {
+            margin-right: 20px;
+            width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .video-info-container {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+        }
+
+        .Profile-pictures {
+            width: 40px;
+            border-radius: 50px;
+        }
+
+        .thumbnail-row {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .video-author,
+        .video-stats {
+            font-size: 12px;
+            color: rgb(96,96,96);
+        }
+
+        .video-author {
+            margin-bottom: 4px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 16px;
+            row-gap: 40px;
+        }
+        @media  (max-width: 600px){
+             .video-grid{
+             grid-template-columns: 1fr 1fr;
+        }
+    }
+        @media  (min-width: 1000px;){
+            .video-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }     
+
+        .search-bar {
+            flex: 1;
+            height: 35px;
+            padding-left: 10px;
+            font-size: 16px;
+            border: 1px solid rgb(192, 192, 192);
+            border-radius: 2px 0 0 2px;
+            box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+            width: 0;
+        }
+
+        .search-bar::placeholder {
+            font-family: Roboto, Arial;
+            font-size: 16px;
+        }
+
+        .search-button {
+            height: 40px;
+            width: 66px;
+            background-color: rgb(240,240,240);
+            border: 1px solid rgb(192,192,192);
+            margin-left: -1px;
+            margin-right: 10px;
+            position: relative;
+        }
+        .search-button .tooltip{
+            position: absolute; 
+            background-color: gray;
+            color: white;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 8px;
+            padding-left: 8px;
+            border-radius: 6px;
+            top: 50px; 
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+        .search-button:hover .tooltip{
+            opacity: 1;
+        }
+
+        .search-icon {
+            height: 24px;
+            margin-top: 4px;
+        }
+
+        .voice-search-button {
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: rgb(248,248,248);
+            position: relative;
+        }
+         .voice-search-button .tooltip{
+            position: absolute; 
+            background-color: gray;
+            color: white;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 8px;
+            padding-left: 8px;
+            border-radius: 6px;
+            top: 50px; 
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.15s;
+            display: flex;
+            white-space: nowrap;
+            justify-content: center;
+         }
+         .voice-search-button:hover .tooltip{
+            opacity: 1;
+             justify-content: center;
+        }
+         .search-button,.voice-search-button{
+            display: flex;
+            justify-content: center;
+         }
+
+
+        .voice-search-icon {
+            height: 24px;
+            margin-top: 4px;
+        }
+
+        .hamburger-menu {
+            height: 20px;
+            margin-left: 20px;
+            margin-right: 24px;
+        }
+
+        .youtube-logo {
+            height: 20px;
+        }
+
+        .upload-icon {
+            height: 24px;
+        }
+
+        .yt-icon {
+            height: 24px;
+        }
+
+        .not-icon {
+            height: 24px;
+        
+        }
+        .notification-icon-container{
+            position: relative;
+        }
+        .not-count{
+            position: absolute;
+            top: -2px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            font-family: Roboto,Arial;
+            font-size: 11px;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            border-radius: 10px;
+        }
+        .p-icon {
+            height: 32px;
+            border-radius: 16px;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            top: 50px; /* start below header */
+            background-color: white;
+            width: 75px;
+        }
+        .video-time{
+            background-color: black;
+            color: white;
+            position: absolute;
+            bottom: 8px;
+            right: 5px;
+            font-family: Roboto,Arial;
+            font-size: 12px;
+            font-weight: 500;
+            padding-left: 4px;
+            padding-right: 4px;
+            padding-bottom: 4px;
+            padding-top: 4px;
+            border-radius: 5px;
+        }
+        .sidebar-link{
+            height: 75px;
+        }
+        .sidebar-link:hover{
+            background-color: lightgray;
+        }
+        .sidebar-link img{
+            height: 25px;
+            padding-left: 25px;
+            margin-top: 22px;
+        }
+        .home{
+            font-size: 11px;
+            padding-left: 22px;
+            padding-bottom: 50px;
+        }
+        .subs{
+            padding-left: 4px;
+            font-size: 11px;
+            padding-bottom: 50px;
+        }
+        .orignal{
+            padding-left: 15px;
+            font-size: 11px;
+            padding-bottom: 50px;
+        }
+        .ytmusic{
+            padding-left: 1px;
+            font-size: 11px;
+        }
+        a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  opacity: 0.85; /* Optional hover effect */
+}
+
+
+    </style>
